@@ -4,7 +4,7 @@ class ToDoList extends Component {
     render() {
         return(
             <View>
-    
+                <Text>{this.props.list}</Text>
             </View>
         )
     }
