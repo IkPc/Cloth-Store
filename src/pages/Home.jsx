@@ -12,7 +12,7 @@ export default function Home() {
     }
   return (
     <View>
-      <Header title="Home" onPress={handleButtonPress}/>
+      <Header title="Home" />
       <ToDoList />
       <ProductCard name="Camisa" price="R$ 30"/>
       <Profile />

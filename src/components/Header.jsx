@@ -1,11 +1,11 @@
 import react from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
-const Header = ({ title, onPress }) => {
+const Header = ({ title }) => {
     return(
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity onPress={onPress} style={styles.button}>
+      <TouchableOpacity onPress={handleButtonPress} style={styles.button}>
         <Text style={styles.buttonText}>Send</Text>
       </TouchableOpacity>
     </View>
