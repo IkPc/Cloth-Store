@@ -1,13 +1,18 @@
-import react from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, Text, Pressable, StyleSheet } from "react-native";
+
 
 const Header = ({ title }) => {
+    const handleButtonPress = () => {
+        Alert.alert('Botão pressionado', 'Send');
+      };
+      
     return(
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity onPress={handleButtonPress} style={styles.button}>
+      <Pressable onPress={handleButtonPress} style={styles.button}>
         <Text style={styles.buttonText}>Send</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
     )
 };
