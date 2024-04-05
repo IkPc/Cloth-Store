@@ -1,20 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
-import Header from '../components/Header';
-import ProductCard from '../components/ProductCard';
-import ToDoList from '../components/ToDoList';
-import { ToDoItem } from '../components/Data';
-import Profile from '../components/Profile';
+import { View, StyleSheet } from 'react-native';
+import Header from '../components/header';
+import ProductCard from '../components/productCard';
+import Cart from '../components/Cart';
+import { ToDoItem } from '../components/data';
 import Buttons from '../components/Buttons';
 
 export default function Home() {
   return (
-    <View>
-      <Header title="Home"/>
-      <Profile />
-      <ToDoList list={ToDoItem}/>
-      <ProductCard name="Camisa" price="R$ 30"/>
-      <Buttons title="Adicionar ao carrinho" color="lime"/>
+    <View style={styles.container}>
+      <Cart list={ToDoItem}/>
+      <ProductCard name="Camisa Vans" price="R$ 30"/>
+      <Buttons title="Adicionar ao carrinho" color="green"/>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+});

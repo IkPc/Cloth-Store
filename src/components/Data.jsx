@@ -4,10 +4,10 @@ import { View, Text, StyleSheet } from 'react-native';
 const ToDoItem = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lista:</Text>
+      <Text style={styles.title}>Cart:</Text>
       <View style={styles.listContainer}>
-        <Text style={styles.listItem}>Item 1;</Text>
-        <Text style={styles.listItem}>Item 2;</Text>
+        <Text style={styles.listItem}>Shirt</Text>
+        <Text style={styles.listItem}>Pants</Text>
       </View>
     </View>
   );

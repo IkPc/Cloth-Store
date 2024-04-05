@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-class ToDoList extends Component {
+class Cart extends Component {
     render() {
         return(
             <View style={styles.container}>
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ToDoList;
+export default Cart;
