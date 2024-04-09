@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Define a regular expression to match package-lock.json files
+PACKAGE_LOCK_REGEX="(^packages/.*\/package-lock\.json)|(^package-lock\.json)"
+
+# Get a list of changed files after git pull
+PACKAGES=($(git diff --name-only HEAD@{1} HEAD | grep -E "$PACKAGE_LOCK_REGEX"))
+
+# Run npm install for each changed package
+if [[ ${PACKAGES[@]} ]]; then
+    for package in "${PACKAGES[@]}"; do
+        echo "📦 $package was changed. Running npm install to update your dependencies..."
+        (cd "$(dirname "$package")" && npm install)
+    done
+fi
+
+# Install npm packages for new environment
+echo "🌟 Installing npm packages for the new environment..."
+npm install
