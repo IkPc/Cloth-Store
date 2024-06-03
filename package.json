@@ -1,5 +1,5 @@
 {
-  "name": "atv2rn",
+  "name": "cloth-store",
   "version": "1.0.0",
   "start_url": "https://ikpc.github.io/Cloth-Store/",
   "main": "node_modules/expo/AppEntry.js",
