@@ -1,21 +1,88 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
-class Cart extends Component {
-    render() {
-        return(
-            <View style={styles.container}>
-                <Text style={styles.list}>{this.props.list}</Text>
+const Cart = ({ image, title, price }) => {
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageError = () => {
+        setImageError(true);
+    };
+    console.log("Image URL:", image);
+
+
+    return (
+        <View style={styles.container}>
+            {image && !imageError ? (
+                <Image
+                    source={{ uri: image }}
+                    style={styles.image}
+                    onError={handleImageError}
+                />
+            ) : (
+                <View style={styles.placeholder}>
+                    <Text style={styles.placeholderText}>No Image</Text>
+                </View>
+            )}
+            <View style={styles.details}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.price}>${price}</Text>
             </View>
-        );
-    }
-}
+        </View>
+    );
+};
+
+Cart.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number
+};
+
+Cart.defaultProps = {
+    image: '',
+    title: 'Untitled',
+    price: 0.0
+};
 
 const styles = StyleSheet.create({
     container: {
-        marginVertical: 10,
+        marginVertical: 2,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderColor: 'gray',
+        borderBottomWidth: 1,
+        borderStyle: "solid",
+        paddingBottom: 5,
+        marginHorizontal: 300,
     },
-    list: {
+    image: {
+        width: 50,
+        height: 50,
+        marginRight: 10,
+    },
+    placeholder: {
+        width: 50,
+        height: 50,
+        marginRight: 10,
+        backgroundColor: '#ccc',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    placeholderText: {
+        color: 'white',
+    },
+    details: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flex: 1,
+    },
+    title: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "black",
+    },
+    price: {
         fontSize: 16,
         fontWeight: "bold",
         color: "black",

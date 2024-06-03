@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Pressable, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 
 const LoginFunc = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleLogin = () => {      
-      if (username === "usuario" && password === "senha") {
-          navigation.navigate('Home');
-          Alert.alert(`Bem vindo ${username}`);
-      } else {
-          Alert.alert('Nome de usuário ou senha incorretos. Tente novamente.');
-          navigation.navigate('Login');
-      }
-  }
-  
+    const handleLogin = () => {
+        if (username === "usuario" && password === "senha") {
+            navigation.navigate('Home');
+        } else {
+            setError('Nome de usuário ou senha incorretos. Tente novamente.');
+            setPassword('');  
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -34,7 +33,10 @@ const LoginFunc = ({ navigation }) => {
                 style={styles.input}
                 value={password}
                 onChangeText={setPassword}
+                secureTextEntry={true}
             />
+
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
             <Pressable
                 style={styles.button}
@@ -43,7 +45,7 @@ const LoginFunc = ({ navigation }) => {
                 <Text style={styles.buttonText}>Login</Text>
             </Pressable>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -79,6 +81,10 @@ const styles = StyleSheet.create({
     buttonText: {
         color: 'white',
         fontWeight: 'bold',
+    },
+    errorText: {
+        color: 'red',
+        marginBottom: 10,
     },
 });
 
