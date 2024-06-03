@@ -1,4 +1,4 @@
-## Cloth Store prototype
+## Cloth Store
 This project's idea is to create a website that you can login and go through some clothes and buy them.
 
 ###Nao consegui fazer o projeto funcionar através do gh-pages, recomendo instalar e entao rodar localmente (nao funciona de jeito nenhum virtualmente)
